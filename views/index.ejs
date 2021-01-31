@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<%- include('./partials/head.ejs') %>
+	</head>
+	<body>
+		<header><h1>List of All Scientists</h1></header>
+
+		<div>
+			<ul>
+				<%allScientists.forEach((scientist, index) => {%>
+				<li>
+					<a href="/scientists/<%=index%>"><%=scientist.name%></a>
+				</li>
+
+				<form action="/scientists/<%=index%>/edit" method="GET">
+					<input type="submit" value="EDIT" />
+				</form>
+
+				<form
+					action="/scientists/<%=index%>?_method=DELETE"
+					method="POST"
+				>
+					<input type="submit" value="DELETE" />
+				</form>
+				<br />
+				<%});%>
+			</ul>
+		</div>
+		<br />
+		<nav>
+			<a href="/scientists/new">Create New Scientists</a>
+		</nav>
+	</body>
+</html>

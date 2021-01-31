@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<%- include('./partials/head.ejs') %>
+	</head>
+	<body>
+		<div>
+			<h1>Edit Scientist</h1>
+			<form action="/scientists/<%=index%>?_method=PUT" method="POST">
+				<label for="name">name</label>
+				<input
+					type="text"
+					name="name"
+					id="name"
+					value="<%=scientistObj.name%>"
+				/>
+				<label for="desc">Description</label>
+				<input
+					type="text"
+					name="desc"
+					id="desc"
+					value="<%=scientistObj.desc%>"
+				/>
+				<input type="submit" value="Edit Scientist" />
+			</form>
+		</div>
+	</body>
+</html>
